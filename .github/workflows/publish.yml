@@ -19,10 +19,6 @@ jobs:
         run: |
           sudo apt install build-essential libssl-dev git make bash jq -y
 
-      - name: Install Build Dependencies
-        run: |
-          sudo apt install podman buildah qemu-system qemu-user qemu-user-static binfmt-support -y
-
       - name: Prepare to install trixie buildah and podman
         run: |
           (curl -fL 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0E98404D386FA1D9' -o /tmp/0x0E98404D386FA1D9.asc && sudo mv /tmp/0x0E98404D386FA1D9.asc /etc/apt/trusted.gpg.d/) &
@@ -39,8 +35,9 @@ jobs:
       - name: Upgrade System
         run: sudo apt upgrade -y
 
-      - name: Install trixie buildah and podman
-        run: sudo apt install podman/trixie buildah/trixie -y
+      - name: Install Build Dependencies
+        run: |
+          sudo apt install podman buildah qemu-system qemu-user qemu-user-static binfmt-support -y
 
       - name: Run multiarch/qemu-user-static
         run: sudo podman run --rm --privileged multiarch/qemu-user-static --reset -p yes
