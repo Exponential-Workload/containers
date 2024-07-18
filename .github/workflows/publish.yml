@@ -31,7 +31,7 @@ jobs:
 
       - name: Use noble repos
         run: |
-          for F in /etc/apt/sources.list.d/* /etc/apt/sources.list; do sed -i "s/$(grep UBUNTU_CODENAME= /etc/os-release | sed s/UBUNTU_CODENAME=//g | tr -d '\n')/noble/g" $F; done
+          for F in /etc/apt/sources.list.d/* /etc/apt/sources.list; do sudo sed -i "s/$(grep UBUNTU_CODENAME= /etc/os-release | sed s/UBUNTU_CODENAME=//g | tr -d '\n')/noble/g" $F; done
 
       - name: Update Package Lists
         run: sudo apt update -y
