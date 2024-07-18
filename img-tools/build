@@ -25,7 +25,7 @@ ARCHITECTURES=()
 updateArchitectures() {
   ARCHITECTURES=(
     'amd64'
-    '386'
+    # '386' # TODO: fix i386 support!!!
     'arm64'
     'ppc64le'
     'riscv64'

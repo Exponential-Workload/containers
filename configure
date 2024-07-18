@@ -177,7 +177,7 @@ handleArch() {
         LIMIT_TO_ARCH="amd64";
         ;;
       i386|i686|x86|86)
-        LIMIT_TO_ARCH="amd64";
+        LIMIT_TO_ARCH="386";
         ;;
       arm|arm64|aarch64)
         LIMIT_TO_ARCH="arm64";
