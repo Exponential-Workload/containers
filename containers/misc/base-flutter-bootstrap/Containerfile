@@ -7,7 +7,7 @@ LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
 
 RUN sudo pacman -Syu --noconfirm --needed dart git curl wget jq yq unzip which
 ENV FLUTTER_INSTALL_DIR="/usr/bin"
-ENV PATH="${PATH}:${FLUTTER_INSTALL_DIR}/flutter/bin"
+ENV PATH="${FLUTTER_INSTALL_DIR}/flutter/bin:${PATH}:${FLUTTER_INSTALL_DIR}/flutter/bin"
 RUN curl -fLo /tmp/flutter.tar.xz 'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.22.2-stable.tar.xz' && \
   sudo tar -xf /tmp/flutter.tar.xz -C "${FLUTTER_INSTALL_DIR}/" && \
   rm /tmp/flutter.tar.xz && \
