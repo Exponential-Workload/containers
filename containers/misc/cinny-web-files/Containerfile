@@ -3,7 +3,7 @@ FROM docker.io/3xpo/base AS cinny
 # Prepare Env
 ARG BUILD_TAG="latest"
 WORKDIR "${HOME}"
-RUN sudo pacman -S --noconfirm --needed jq
+RUN sudo pacman -Syu --noconfirm --needed jq
 
 # Clone Cinny
 RUN git clone "https://github.com/cinnyapp/cinny.git" "${HOME}/cinny-web" --recursive

@@ -3,7 +3,7 @@ FROM docker.io/3xpo/base-flutter AS fluffychat
 # Prepare Env
 ARG BUILD_TAG="latest"
 WORKDIR "${HOME}"
-RUN sudo pacman -S --needed --noconfirm libolm
+RUN sudo pacman -Syu --needed --noconfirm libolm
 
 # Clone Flufflychat
 RUN git clone "https://github.com/krille-chan/fluffychat.git" "${HOME}/fluffychat" --recursive

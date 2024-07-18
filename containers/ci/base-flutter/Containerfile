@@ -6,7 +6,7 @@ LABEL org.opencontainers.image.description="Preset Containerd image of Arch Linu
 LABEL org.opencontainers.image.documentation="https://codeberg.org/Expo/containers/src/branch/master/containers/ci/base-flutter/README.md"
 LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
 
-RUN sudo pacman -S --noconfirm --needed dart git curl wget jq yq unzip which
+RUN sudo pacman -Syu --noconfirm --needed dart git curl wget jq yq unzip which
 ENV FLUTTER_INSTALL_DIR="/usr/bin/flutter"
 ENV PATH="${PATH}:${FLUTTER_INSTALL_DIR}/bin"
 COPY --from=flutter --chown=astolfo:astolfo --chmod=755 "${FLUTTER_INSTALL_DIR}" "${FLUTTER_INSTALL_DIR}"
