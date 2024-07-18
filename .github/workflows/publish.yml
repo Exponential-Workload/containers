@@ -36,6 +36,9 @@ jobs:
       - name: Update Package Lists
         run: sudo apt update -y
 
+      - name: Upgrade System
+        run: sudo apt upgrade -y
+
       - name: Install trixie buildah and podman
         run: sudo apt install podman/trixie buildah/trixie -y
 
