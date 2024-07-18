@@ -37,7 +37,7 @@ jobs:
         run: sudo apt update -y
 
       - name: Upgrade System
-        run: sudo apt upgrade -y
+        run: sudo apt dist-upgrade -y
 
       - name: Install Build Dependencies
         run: |
