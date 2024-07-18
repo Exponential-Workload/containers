@@ -32,7 +32,7 @@ jobs:
       - name: Use noble repos
         run: |
           set -eax
-          sudo rm -rf /etc/apt/sources.list.d/azure-cli.sources
+          sudo rm -rf /etc/apt/sources.list.d/azure-cli.sources /etc/apt/sources.list.d/ubuntu.sources
           for F in /etc/apt/sources.list.d/* /etc/apt/sources.list; do
             sed "s/$(grep UBUNTU_CODENAME= /etc/os-release | sed s/UBUNTU_CODENAME=//g | tr -d '\n')/noble/g" $F > /tmp/a.txt
             grep -v packages.microsoft.com /tmp/a.txt | grep -v azure.archive.ubuntu.org | sudo tee $F
