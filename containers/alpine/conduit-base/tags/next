@@ -1,2 +1,0 @@
---build-arg=BUILD_USING_BRANCH=next
---build-arg=BUILD_USING_TARGET=debug
