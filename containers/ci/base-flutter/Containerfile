@@ -7,9 +7,10 @@ LABEL org.opencontainers.image.documentation="https://codeberg.org/Expo/containe
 LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
 
 RUN sudo pacman -Syu --noconfirm --needed dart git curl wget jq yq unzip which
-ENV FLUTTER_INSTALL_DIR="/usr/bin/flutter"
+ENV BOOTSTRAP_FLUTTER_INSTALL_DIR="/usr/bin/flutter"
+ENV FLUTTER_INSTALL_DIR="/opt/flutter"
 ENV PATH="${FLUTTER_INSTALL_DIR}/bin:${PATH}:${FLUTTER_INSTALL_DIR}/bin"
-COPY --from=flutter --chown=astolfo:astolfo --chmod=755 "${FLUTTER_INSTALL_DIR}" "${FLUTTER_INSTALL_DIR}"
+COPY --from=flutter --chown=astolfo:astolfo --chmod=755 "${BOOTSTRAP_FLUTTER_INSTALL_DIR}" "${FLUTTER_INSTALL_DIR}"
 RUN git config --global --add safe.directory "${FLUTTER_INSTALL_DIR}" && \
   flutter --disable-analytics && \
   sudo sh -c 'PATH="${FLUTTER_INSTALL_DIR}/bin:${PATH}" "${FLUTTER_INSTALL_DIR}/bin/flutter" --disable-analytics' && \
