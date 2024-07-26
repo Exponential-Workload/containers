@@ -12,5 +12,5 @@ ENV PATH="${FLUTTER_INSTALL_DIR}/bin:${PATH}:${FLUTTER_INSTALL_DIR}/bin"
 COPY --from=flutter --chown=astolfo:astolfo --chmod=755 "${FLUTTER_INSTALL_DIR}" "${FLUTTER_INSTALL_DIR}"
 RUN git config --global --add safe.directory "${FLUTTER_INSTALL_DIR}" && \
   flutter --disable-analytics && \
-  sudo "${FLUTTER_INSTALL_DIR}/flutter" --disable-analytics && \
+  sudo sh -c 'PATH="${FLUTTER_INSTALL_DIR}/bin:${PATH}" "${FLUTTER_INSTALL_DIR}/bin/flutter" --disable-analytics' && \
   flutter upgrade
