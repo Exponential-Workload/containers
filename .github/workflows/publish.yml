@@ -84,5 +84,3 @@ jobs:
       - name: Cleanup
         run: |
           podman system prune -af
-          podman system prune -af --external --volumes
-          podman image prune -af --external
