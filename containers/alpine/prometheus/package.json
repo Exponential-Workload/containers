@@ -6,6 +6,7 @@
     "publish": "../../../publish"
   },
   "dependencies": {
-    "alpine-base": "workspace:*"
+    "alpine-base": "workspace:*",
+    "minimal-omz": "workspace:*"
   }
 }

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 set -eax
 
 if [[ -f "$(dirname $0)/../contrib/config/sh" ]]; then
